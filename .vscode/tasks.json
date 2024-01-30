@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+            "label": "Run as shell",
+            "type": "shell",
+            "command": "pwsh -Command docker compose -f 'docker-compose.yml' up -d --build",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+	]
+}

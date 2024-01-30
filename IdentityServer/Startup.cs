@@ -30,6 +30,7 @@ namespace IdentityServer
             services.AddCors(options => {
                 options.AddPolicy("default", policy =>
                 {
+                    //policy.WithOrigins("http://localhost:5001")
                     policy.WithOrigins($"{Configuration.GetValue<string>("ReactClientUrl")}")
                         .AllowAnyMethod()
                         .AllowAnyHeader()

@@ -1,13 +1,16 @@
-FROM node:12.10.0
+FROM node:18-alpine
 
 WORKDIR /usr/app
 
 COPY package*.json ./
 
-RUN npm ci -qy
+RUN npm install
+RUN npm run build
+
+#RUN npm ci -qy
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5001
 
 CMD ["npm", "start"]
