@@ -31,6 +31,7 @@
     "redux-starter-kit": "^0.5.1"
   },
   "scripts": {
+    "dev": "vite",
     "start": "react-scripts start",
     "start:dev": "env-cmd -f .env react-scripts start",
     "build": "react-scripts build",
@@ -60,11 +61,13 @@
     "typescript": "3.9.3"
   },
   "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.3",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
-    "prettier": "2.0.5"
+    "prettier": "2.0.5",
+    "vite": "^5.0.12"
   },
   "browserslist": {
     "production": [
@@ -72,6 +75,10 @@
       "not dead",
       "not op_mini all"
     ],
-    "development": []
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -81,13 +81,13 @@ namespace IdentityServer
                 {
                     webBuilder.UseStartup<Startup>()
                               //Remove below for production env 
-                              .ConfigureKestrel(o => o.Listen(IPAddress.Any, 5000, listenOptions => 
+                              .ConfigureKestrel(o => o.Listen(IPAddress.Any, 8001, listenOptions => 
                               {
                                   // Uncomment below if you want SSL cert for localhost
-                                  //listenOptions.UseHttps(X509.buildSelfSignedServerCertificate("localhost"), opt => 
-                                  //                                                                          { 
-                                  //                                                                              opt.AllowAnyClientCertificate(); 
-                                  //                                                                          });
+                                  listenOptions.UseHttps(X509.buildSelfSignedServerCertificate("localhost"), opt =>
+                                    {
+                                        opt.AllowAnyClientCertificate();
+                                    });
                               }));
                 });
 

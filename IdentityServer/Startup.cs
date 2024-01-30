@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4;
 using IdentityServer.Data;
 using IdentityServer.Models;
 using Microsoft.AspNetCore.Builder;
@@ -12,8 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using IdentityServer4.Services;
 
 namespace IdentityServer
 {
@@ -33,17 +30,19 @@ namespace IdentityServer
             services.AddCors(options => {
                 options.AddPolicy("default", policy =>
                 {
-                    policy.WithOrigins($"{Configuration.GetValue<string>("ReactClientUrl") }")
-                        .AllowAnyHeader()
+                    policy.WithOrigins($"{Configuration.GetValue<string>("ReactClientUrl")}")
                         .AllowAnyMethod()
-                        .AllowCredentials();
+                        .AllowAnyHeader()
+                        .SetIsOriginAllowed(origin => true) // allow any origin
+                        .AllowCredentials(); // allow credentials
                 });
             });
 
-            services.AddControllersWithViews(o => o.SslPort = 5000);
+            //services.AddControllersWithViews(o => o.SslPort = 5001);
+            services.AddControllers(o => o.SslPort = 5001);
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //The settings below should be reconfigured for production
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
@@ -77,8 +76,6 @@ namespace IdentityServer
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
-
-     
         }
 
         public void Configure(IApplicationBuilder app)
@@ -86,18 +83,23 @@ namespace IdentityServer
             if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
             }
 
             app.UseStaticFiles();
-            //app.UseHttpsRedirection(); //Uncomment to force SSL
+            app.UseHttpsRedirection(); //Uncomment to force SSL
             app.UseRouting();
+
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
+
             app.UseIdentityServer();
-            app.UseCors("default");
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllers();
             });
 
             SeedData.EnsureSeedData(Configuration.GetConnectionString("DefaultConnection"));
