@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { logoff } from "services/oauth";
 import { useSelector } from 'react-redux'
 
@@ -28,7 +28,7 @@ import styles from "assets/jss/material-dashboard-react/components/headerLinksSt
 const useStyles = makeStyles(styles);
 
 export default function AdminNavbarLinks() {
-  const history = useHistory();
+  const history = useNavigate();
   const user = useSelector((state) => state.auth.user);
   const classes = useStyles();
   const [openNotification, setOpenNotification] = React.useState(null);

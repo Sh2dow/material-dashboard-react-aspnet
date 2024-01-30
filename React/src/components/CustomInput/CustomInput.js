@@ -81,5 +81,7 @@ CustomInput.propTypes = {
   inputProps: PropTypes.object,
   formControlProps: PropTypes.object,
   error: PropTypes.bool,
-  success: PropTypes.bool
+  success: PropTypes.bool,
+  name: PropTypes.string, // Add prop type for 'name'
+  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]), // Add prop type for 'inputRef'
 };

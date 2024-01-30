@@ -16,10 +16,12 @@
 
 */
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom';
 
 import App from './App';
 
 import "assets/css/material-dashboard-react.css?v=1.0.0";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+
+root.render(<App />);

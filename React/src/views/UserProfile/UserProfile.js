@@ -104,7 +104,7 @@ export default function UserProfile() {
         CurrentPassword: data.CurrentPassword,
         NewPassword: data.NewPassword,
       })
-      .then((res) => {
+      .then(() => {
         showNotification("tr");
         e.target.reset();
       })

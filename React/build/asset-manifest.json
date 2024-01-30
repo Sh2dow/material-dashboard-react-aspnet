@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/material-dashboard-react-asp-net/admin/dashboard/static/css/main.008ca92b.css",
+    "main.js": "/material-dashboard-react-asp-net/admin/dashboard/static/js/main.c3781e7a.js",
+    "static/media/login.jpeg": "/material-dashboard-react-asp-net/admin/dashboard/static/media/login.c8a507cfdf0701f0a93e.jpeg",
+    "static/media/register.jpeg": "/material-dashboard-react-asp-net/admin/dashboard/static/media/register.2dd199e9fb4d118dbe15.jpeg",
+    "static/media/sidebar-2.jpg": "/material-dashboard-react-asp-net/admin/dashboard/static/media/sidebar-2.22f68ba5083927570c3e.jpg",
+    "static/media/sidebar-1.jpg": "/material-dashboard-react-asp-net/admin/dashboard/static/media/sidebar-1.0a127c5829ff5a63fc0a.jpg",
+    "static/media/sidebar-3.jpg": "/material-dashboard-react-asp-net/admin/dashboard/static/media/sidebar-3.e667b13e0c920f7deb16.jpg",
+    "static/media/sidebar-4.jpg": "/material-dashboard-react-asp-net/admin/dashboard/static/media/sidebar-4.dd4b55816b108105f487.jpg",
+    "static/media/marc.jpg": "/material-dashboard-react-asp-net/admin/dashboard/static/media/marc.e860728791b7ef6a0a14.jpg",
+    "index.html": "/material-dashboard-react-asp-net/admin/dashboard/index.html",
+    "main.008ca92b.css.map": "/material-dashboard-react-asp-net/admin/dashboard/static/css/main.008ca92b.css.map",
+    "main.c3781e7a.js.map": "/material-dashboard-react-asp-net/admin/dashboard/static/js/main.c3781e7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.008ca92b.css",
+    "static/js/main.c3781e7a.js"
+  ]
+}

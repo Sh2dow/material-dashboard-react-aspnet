@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import {
-  BrowserRouter as Router,
+  Router,
   Route,
-  Switch,
-  Redirect,
+  Routes,
+  Navigate,
 } from "react-router-dom";
 import LoginPage from "./views/UserProfile/LoginPage";
 import { Provider } from "react-redux";
@@ -27,7 +27,7 @@ function App() {
     <Provider store={store}>
       <AuthProvider userManager={oauth} store={store}>
         <Router>
-          <Switch>
+          <Routes>
             <PrivateRoute path="/admin/user" component={Admin} />
             <PrivateRoute path="/admin" component={Admin} />
             <PrivateRoute path="/rtl" component={RTL} />
@@ -35,8 +35,8 @@ function App() {
             <Route path="/login-page" component={LoginPage} />
             <Route path="/auth" component={AuthLayout} />
 
-            <Redirect from="/" to="/admin/dashboard" />
-          </Switch>
+            <Navigate from="/" to="/admin/dashboard" />
+          </Routes>
         </Router>
       </AuthProvider>
     </Provider>

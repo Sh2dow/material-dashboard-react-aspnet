@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Router, Route, Navigate } from "react-router-dom";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -87,10 +87,10 @@ export default function Pages(props) {
                     className={classes.fullPage}
                     style={{ backgroundImage: "url(" + getBgImage() + ")" }}
                 >
-                    <Switch>
+                    <Router>
                         {getRoutes(routes)}
-                        <Redirect from="/auth" to="/auth/login-page" />
-                    </Switch>
+                        <Navigate from="/auth" to="/auth/login-page" />
+                    </Router>
                     <Footer white />
                 </div>
             </div>

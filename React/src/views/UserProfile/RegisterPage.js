@@ -26,14 +26,14 @@ import CardBody from "components/Card/CardBody.js";
 
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 import styles from "assets/jss/material-dashboard-react/views/registerPageStyle";
 
 const useStyles = makeStyles(styles);
 
 export default function RegisterPage() {
-  const history = useHistory();
+  const history = useNavigate();
   const [checked, setChecked] = React.useState([]);
   const handleToggle = (value) => {
     const currentIndex = checked.indexOf(value);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Router, Route, Navigate } from "react-router-dom";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -21,7 +21,7 @@ import logo from "assets/img/reactlogo.png";
 let ps;
 
 const switchRoutes = (
-  <Switch>
+  <Router>
     {routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
@@ -34,8 +34,8 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/admin" to="/admin/dashboard" />
-  </Switch>
+    <Navigate from="/admin" to="/admin/dashboard" />
+  </Router>
 );
 
 const useStyles = makeStyles(styles);

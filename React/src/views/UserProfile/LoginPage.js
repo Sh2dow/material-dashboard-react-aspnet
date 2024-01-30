@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { login } from "services/oauth";
-import { useHistory } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // @material-ui/core components
@@ -30,7 +30,7 @@ const useStyles = makeStyles(styles);
 
 export default function LoginPage() {
   const user = useSelector((state) => state.auth.user);
-  const history = useHistory();
+  const history = useNavigate();
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   const { register: loginFrom, handleSubmit } = useForm();
   const [error, setError] = React.useState(false);
